@@ -32,9 +32,11 @@ app.get('/', function (req, res) {
 })
 
 // designates what port the app will listen to for incoming requests
-app.listen(4040, function () {
-    console.log('Example app listening on port 4040!')
-})
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
+app.listen(port);
 
 // Fetch Aylien API
 /*
